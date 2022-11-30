@@ -19,22 +19,22 @@ namespace rehgoc_Dijkstra
             }
         }
 
-        public void AddOrientedEdge(int u, int v, int w)
+        public void AddOrientedEdge(int _edgeIndex, int _to, int _weight)
         {
             //add 
-            _link[u].Add(new Edge(v, w));
+            _link[_edgeIndex].Add(new Edge(_to, _weight));
         }
 
-        public void AddUnorientedEdge(int u, int v, int w)
+        public void AddUnorientedEdge(int _edgeIndex, int _to, int _weight)
         {
-            AddOrientedEdge(u, v, w);
-            AddOrientedEdge(v, u, w);
+            AddOrientedEdge(_edgeIndex, _to, _weight);
+            AddOrientedEdge(_to, _edgeIndex, _weight);
 
         }
 
-        public List<Edge> FromVertex(int u)
+        public List<Edge> FromVertex(int _edgeIndex)
         {
-            return _link[u];
+            return _link[_edgeIndex];
         }
     }
 }
